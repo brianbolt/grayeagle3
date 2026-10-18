@@ -21,7 +21,7 @@ export const seasons = {
       {
         icon: 'MountainSnow',
         title: 'Mammoth Mountain',
-        text: 'Over 3,500 acres, 150+ trails, and an 11,053 ft summit. The free town shuttle connects to the lifts, so you can leave the car in the garage.',
+        text: 'Over 3,500 acres, 150+ trails, and an 11,053 ft summit. One of the prides of Mammoth Lakes is the free town shuttle, which runs to the lifts so you can leave the car in the garage.',
         tag: 'Free shuttle nearby',
       },
       {

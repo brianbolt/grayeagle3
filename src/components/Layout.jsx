@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import LiveButton from './LiveButton'
 import SeasonToggle from './SeasonToggle'
 import { site } from '../data/site'
+import { savingsLabel } from '../booking'
 import { useTheme } from '../theme'
 
 const links = [
@@ -49,9 +51,12 @@ export default function Layout() {
             ))}
             <SeasonToggle />
           </nav>
-          <button className="nav__burger" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open}>
-            {open ? <X /> : <Menu />}
-          </button>
+          <div className="nav__end">
+            <LiveButton />
+            <button className="nav__burger" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open}>
+              {open ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -76,15 +81,19 @@ export default function Layout() {
           </div>
           <div>
             <p className="footer__label">Book</p>
-            <a href={site.bookUrl} target="_blank" rel="noreferrer">Book direct</a>
+            <a href={site.bookUrl} target="_blank" rel="noreferrer">Book direct on Hostfully ({savingsLabel.toLowerCase()})</a>
             <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
-            <a href={site.vrboUrl} target="_blank" rel="noreferrer">VRBO</a>
+            <Link to="/live">Live mountain cams</Link>
+            <a href={site.snowmanUrl} target="_blank" rel="noreferrer">Mammoth Snowman</a>
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>
         </div>
         <div className="container footer__fine">
           <span>Licensed with the Town of Mammoth Lakes · Permit #{site.permit}</span>
-          <span>Photos © {site.photoCredit}</span>
+          <span>
+            Photos © {site.photoCredit} · Live cams courtesy of{' '}
+            <a href={site.skiCamsHome} target="_blank" rel="noreferrer">SkiCamsLive.com</a>
+          </span>
         </div>
       </footer>
     </>

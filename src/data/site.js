@@ -7,10 +7,15 @@ export const site = {
   permit: 'TOML-CPAN-16072',
   // Direct booking (Hostfully) is the primary call to action across the site.
   bookUrl: 'https://book.hostfully.com/mammoth-bnb/property-details/18e2499b-2901-45f8-8b0d-d9f9c2d42e20/Gray%20Eagle%20Condo%20-%203bed3bath?guests=6',
-  // TODO: replace the VRBO link and contact email with the real ones.
+  // Set to a number (e.g. 15) to show "Save up to 15%" on the direct-booking
+  // buttons. Compare the same dates on Hostfully vs Airbnb to find it.
+  directSavings: null,
   airbnbUrl: 'https://www.airbnb.com/rooms/1330005146820683917',
-  vrboUrl: 'https://www.vrbo.com/search?destination=Mammoth%20Lakes%2C%20California',
+  // TODO: replace the contact email with the real one.
   email: 'hello@example.com',
+  snowmanUrl: 'https://www.mammothsnowman.com/',
+  skiCamsUrl: 'https://skicamslive.com/mountain/mammoth-mountain/',
+  skiCamsHome: 'https://skicamslive.com/',
   photoCredit: 'Nolan Nitschke',
   coords: { lat: 37.6482, lon: -118.9742 },
   guests: 7,
@@ -32,7 +37,7 @@ export const highlights = [
   {
     icon: 'Footprints',
     title: 'Walk to town',
-    text: 'Restaurants, breweries, and shops are a stroll away, with a free shuttle stop nearby for the mountain.',
+    text: 'Restaurants, breweries, and shops are a stroll away, and the free town shuttle stops nearby for the mountain.',
   },
   {
     icon: 'Bath',
@@ -122,7 +127,11 @@ export const policies = [
 export const faqs = [
   {
     q: 'Do I need a car?',
-    a: 'Not necessarily. You can walk to restaurants and shops, and the free town shuttle and trolley stop nearby. In winter the shuttle takes you to the lifts. A car is handy for summer trips to the Lakes Basin, Convict Lake, or Yosemite.',
+    a: 'Not necessarily. One of the prides of Mammoth Lakes is its free shuttle and trolley system, which stops near the condo and takes you to the lifts in winter. Restaurants and shops are walkable. A car is handy for summer trips to the Lakes Basin, Convict Lake, or Yosemite.',
+  },
+  {
+    q: 'Why book direct instead of Airbnb?',
+    a: 'Booking on our Hostfully page skips the Airbnb service fees, so the same stay costs you less. It is the same condo and the same local hosts.',
   },
   {
     q: 'Do I need chains or 4WD in winter?',
@@ -148,6 +157,7 @@ export const faqs = [
 
 export const resources = {
   winter: [
+    { label: 'Mammoth Snowman powder forecast', href: 'https://www.mammothsnowman.com/' },
     { label: 'Mammoth Mountain snow report', href: 'https://www.mammothmountain.com/mountain-information/mountain-report' },
     { label: 'Mammoth Mountain webcams', href: 'https://www.mammothmountain.com/mountain-information/webcams' },
     { label: 'Caltrans road conditions (US-395)', href: 'https://roads.dot.ca.gov/?roadnumber=395' },

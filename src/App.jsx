@@ -6,6 +6,7 @@ import Condo from './pages/Condo'
 import Explore from './pages/Explore'
 import Guide from './pages/Guide'
 import Book from './pages/Book'
+import Live from './pages/Live'
 
 // HashRouter keeps deep links working on GitHub Pages without server rewrites.
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="explore" element={<Explore />} />
             <Route path="guide" element={<Guide />} />
             <Route path="book" element={<Book />} />
+            <Route path="live" element={<Live />} />
             <Route path="*" element={<Home />} />
           </Route>
         </Routes>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Mail, Star } from 'lucide-react'
 import PageHero from '../components/PageHero'
 import { site } from '../data/site'
+import { savingsLabel } from '../booking'
 
 export default function Book() {
   const [form, setForm] = useState({ name: '', arrive: '', depart: '', guests: '2', message: '' })
@@ -31,14 +32,17 @@ export default function Book() {
 
       <section className="section container split split--top">
         <div>
-          <h2>Book direct</h2>
-          <p>See live availability and pricing, and book directly with us.</p>
+          <span className="badge">{savingsLabel}</span>
+          <h2>Save and book on Hostfully</h2>
+          <p>
+            Booking direct through our Hostfully page skips the Airbnb service fees, so you pay
+            less for the exact same stay. See live availability and pricing, and book with us directly.
+          </p>
           <div className="book-buttons">
-            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Check availability & book</a>
+            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Save & book on Hostfully</a>
           </div>
-          <p className="muted">Prefer a booking platform? We are also on{' '}
-            <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a> and{' '}
-            <a href={site.vrboUrl} target="_blank" rel="noreferrer">VRBO</a>.
+          <p className="muted">
+            Prefer Airbnb? You can also <a href={site.airbnbUrl} target="_blank" rel="noreferrer">book there</a>, though Airbnb adds its own service fees.
           </p>
           <div className="panel panel--note">
             <h3>Before you book</h3>

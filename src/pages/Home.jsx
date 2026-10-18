@@ -5,6 +5,7 @@ import Icon from '../components/Icon'
 import Weather from '../components/Weather'
 import { highlights, photo, site, stats, thumb } from '../data/site'
 import { useTheme } from '../theme'
+import { savingsLabel } from '../booking'
 
 const mosaic = [14, 2, 21, 12, 29, 8]
 
@@ -16,9 +17,10 @@ export default function Home() {
       <PageHero tall eyebrow={content.eyebrow} title={content.headline}>
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Check availability</a>
+          <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book direct · {savingsLabel}</a>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
+        <p className="hero__note">Same condo, same local hosts. Booking on Hostfully means no Airbnb service fees.</p>
         <p className="hero__rating">
           <Star size={16} fill="currentColor" /> {site.rating} · {site.reviewCount} reviews on Airbnb
         </p>
@@ -40,9 +42,9 @@ export default function Home() {
           <p className="eyebrow">Welcome to Gray Eagle</p>
           <h2>Your basecamp in the heart of Mammoth Lakes.</h2>
           <p>
-            A bright three-bedroom, three-bath condo with a private hot tub, a gas fireplace, and an
-            extra-large garage for all your gear. Walk to dinner, hop the free shuttle to the
-            mountain, and come home to a soak on the deck.
+            One of the prides of Mammoth Lakes is its free shuttle, and it stops near this bright
+            three-bedroom, three-bath condo. Ride it to the mountain, walk to dinner, then come home
+            to a private hot tub, a gas fireplace, and an extra-large garage for all your gear.
           </p>
           <Link className="link-arrow" to="/condo">See the whole place <ArrowRight size={16} /></Link>
         </div>
@@ -109,7 +111,7 @@ export default function Home() {
           <h2>{season === 'winter' ? 'First chair is calling.' : 'The lakes are waiting.'}</h2>
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book now</a>
+            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book direct · {savingsLabel}</a>
             <Link className="btn btn--ghost" to="/book">Ask a question</Link>
           </div>
         </div>
