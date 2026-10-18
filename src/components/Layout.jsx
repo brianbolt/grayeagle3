@@ -81,11 +81,10 @@ export default function Layout() {
           </div>
           <div>
             <p className="footer__label">Book</p>
-            <a href={site.bookUrl} target="_blank" rel="noreferrer">Book direct on Hostfully ({savingsLabel.toLowerCase()})</a>
+            <Link to="/book">Book direct ({savingsLabel.toLowerCase()})</Link>
             <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
             <Link to="/live">Live mountain cams</Link>
             <a href={site.snowmanUrl} target="_blank" rel="noreferrer">Mammoth Snowman</a>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>
         </div>
         <div className="container footer__fine">

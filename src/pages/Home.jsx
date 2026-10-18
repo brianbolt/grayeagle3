@@ -17,7 +17,7 @@ export default function Home() {
       <PageHero tall eyebrow={content.eyebrow} title={content.headline}>
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book direct · {savingsLabel}</a>
+          <Link className="btn btn--primary" to="/book">Book direct · {savingsLabel}</Link>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
         <p className="hero__note">Same condo, same local hosts. Booking on Hostfully means no Airbnb service fees.</p>
@@ -111,8 +111,8 @@ export default function Home() {
           <h2>{season === 'winter' ? 'First chair is calling.' : 'The lakes are waiting.'}</h2>
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book direct · {savingsLabel}</a>
-            <Link className="btn btn--ghost" to="/book">Ask a question</Link>
+            <Link className="btn btn--primary" to="/book">Book direct · {savingsLabel}</Link>
+            <Link className="btn btn--ghost" to="/guide">Read the guest guide</Link>
           </div>
         </div>
       </section>

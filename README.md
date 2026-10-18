@@ -15,7 +15,7 @@ The site has a **winter** (ski) theme and a **summer** (lakes, fishing, cycling,
 
 | What | Where |
 | --- | --- |
-| Booking links (Hostfully is the main Book button), savings %, email, guest count, rating, check-in times | `src/data/site.js` → `site` |
+| Booking links (Hostfully is the main Book button), savings %, guest count, rating, check-in times | `src/data/site.js` → `site` |
 | Amenities, policies, FAQ, packing lists | `src/data/site.js` |
 | Seasonal headlines and activities | `src/data/seasons.js` |
 | Colors for each season | `src/index.css` (top of file) |

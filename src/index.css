@@ -134,6 +134,12 @@ button { font: inherit; cursor: pointer; }
 .live-credit p:last-child { margin: 0; }
 .footer__fine a { color: #c6d0da; }
 
+.book-intro { margin-bottom: 3rem; }
+.book-intro .panel--note { margin-top: 0; }
+.booking-frame { border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); height: 1500px; max-height: 92vh; background: var(--surface); border: 1px solid var(--line); }
+.booking-frame iframe { width: 100%; height: 100%; border: 0; }
+.booking-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.booking-foot p { margin: 0; display: flex; align-items: center; gap: 0.4rem; }
 .badge { display: inline-block; margin-bottom: 0.9rem; padding: 0.3rem 0.8rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
 .hero__note { margin: 0.9rem 0 0; font-size: 0.9rem; opacity: 0.85; }
 
@@ -345,12 +351,6 @@ button { font: inherit; cursor: pointer; }
 .checklist li svg { color: var(--accent); margin-top: 0.3rem; flex: none; }
 
 .book-buttons { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
-.form { display: flex; flex-direction: column; gap: 1rem; }
-.form label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.85rem; font-weight: 500; }
-.form input, .form select, .form textarea { font: inherit; padding: 0.7rem 0.85rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
-.form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form .btn { justify-content: center; }
 
 /* ---------- Footer ---------- */
 .footer { background: #141c25; color: #c6d0da; padding: 4rem 0 2rem; font-size: 0.92rem; }

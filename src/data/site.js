@@ -11,8 +11,6 @@ export const site = {
   // buttons. Compare the same dates on Hostfully vs Airbnb to find it.
   directSavings: null,
   airbnbUrl: 'https://www.airbnb.com/rooms/1330005146820683917',
-  // TODO: replace the contact email with the real one.
-  email: 'hello@example.com',
   snowmanUrl: 'https://www.mammothsnowman.com/',
   skiCamsUrl: 'https://skicamslive.com/mountain/mammoth-mountain/',
   skiCamsHome: 'https://skicamslive.com/',
