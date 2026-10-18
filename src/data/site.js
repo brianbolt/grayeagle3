@@ -1,3 +1,5 @@
+import airbnbRating from './rating.json'
+
 // Central place for listing details. Update the booking links and contact
 // info below — everything else on the site reads from this file.
 export const site = {
@@ -17,9 +19,9 @@ export const site = {
   photoCredit: 'Nolan Nitschke',
   coords: { lat: 37.6482, lon: -118.9742 },
   guests: 7,
-  // Snapshot from the Airbnb listing (not live); update by hand as reviews come in.
-  rating: 4.84,
-  reviewCount: 31,
+  // Refreshed weekly from the Airbnb listing by .github/workflows/update-rating.yml
+  rating: airbnbRating.rating,
+  reviewCount: airbnbRating.reviewCount,
   checkIn: '4:00 PM',
   checkOut: '10:00 AM',
 }
