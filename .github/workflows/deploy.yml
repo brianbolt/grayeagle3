@@ -3,6 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Rebuild when the default season flips so pre-rendered pages match
+    # (summer Jun 1, winter Sep 1; 8am UTC = just after midnight Pacific).
+    - cron: '0 8 1 6,9 *'
   workflow_dispatch:
 
 permissions:
