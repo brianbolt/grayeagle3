@@ -5,7 +5,7 @@ import Icon from '../components/Icon'
 import Weather from '../components/Weather'
 import { highlights, photo, site, stats, thumb } from '../data/site'
 import { useTheme } from '../theme'
-import { savingsLabel } from '../booking'
+import { bookLabel } from '../booking'
 
 const mosaic = [14, 2, 21, 12, 29, 8]
 
@@ -17,10 +17,10 @@ export default function Home() {
       <PageHero tall eyebrow={content.eyebrow} title={content.headline}>
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
-          <Link className="btn btn--primary" to="/book">Book direct · {savingsLabel}</Link>
+          <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
-        <p className="hero__note">Same condo, same local hosts. Booking on Hostfully means no Airbnb service fees.</p>
+        <p className="hero__note">Same condo, same local hosts, and a better price when you book with us directly.</p>
         <p className="hero__rating">
           <Star size={16} fill="currentColor" /> {site.rating} · {site.reviewCount} reviews on Airbnb
         </p>
@@ -111,7 +111,7 @@ export default function Home() {
           <h2>{season === 'winter' ? 'First chair is calling.' : 'The lakes are waiting.'}</h2>
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
-            <Link className="btn btn--primary" to="/book">Book direct · {savingsLabel}</Link>
+            <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
             <Link className="btn btn--ghost" to="/guide">Read the guest guide</Link>
           </div>
         </div>

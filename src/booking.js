@@ -1,4 +1,5 @@
 import { site } from './data/site'
 
-// Short savings line for direct-booking buttons, e.g. "Save up to 15%".
-export const savingsLabel = site.directSavings ? `Save up to ${site.directSavings}%` : 'Skip the Airbnb fees'
+// Labels for direct-booking calls to action, e.g. "Book direct and save up to 15%".
+export const bookLabel = site.directSavings ? `Book direct and save up to ${site.directSavings}%` : 'Book direct and save'
+export const savingsLabel = site.directSavings ? `Save up to ${site.directSavings}%` : 'Book direct and save'

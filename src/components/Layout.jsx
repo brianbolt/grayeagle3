@@ -5,7 +5,7 @@ import LiveButton from './LiveButton'
 import Rider from './Rider'
 import SeasonToggle from './SeasonToggle'
 import { site } from '../data/site'
-import { savingsLabel } from '../booking'
+import { bookLabel } from '../booking'
 import { useTheme } from '../theme'
 
 const links = [
@@ -83,7 +83,7 @@ export default function Layout() {
           </div>
           <div>
             <p className="footer__label">Book</p>
-            <Link to="/book">Book direct ({savingsLabel.toLowerCase()})</Link>
+            <Link to="/book">{bookLabel}</Link>
             <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
             <Link to="/live">Live mountain cams</Link>
             <a href={site.snowmanUrl} target="_blank" rel="noreferrer">Mammoth Snowman</a>
