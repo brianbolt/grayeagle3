@@ -1,8 +1,20 @@
-import { amenities, photo, site } from './site'
+import { photo, site } from './site'
 
 // Bed totals across the condo (Bedroom 1 king, Bedroom 2 queen + twin,
 // Bedroom 3 queen, living room sofa bed), in Google's vacation rental format.
-const beds = [['King', 1], ['Queen', 2], ['Twin', 1], ['Sofa bed', 1]]
+const beds = [['King', 1], ['Queen', 2], ['Single', 1], ['Sofa bed', 1]]
+
+// Amenities using Google's vacation rental vocabulary
+// (developers.google.com/search/docs/appearance/structured-data/vacation-rental).
+const features = [
+  ...['fireplace', 'heating', 'hotTub', 'kitchen', 'microwave', 'ovenStove', 'patio', 'selfCheckinCheckout', 'tv', 'washerDryer', 'wifi']
+    .map((name) => [name, true]),
+  ['ac', false],
+  ['pool', false],
+  ['internetType', 'Free'],
+  ['parkingType', 'Free'],
+  ['licenseNum', `Town of Mammoth Lakes: ${site.permit}`],
+]
 
 export const ORIGIN = 'https://grayeagle3.com'
 
@@ -67,6 +79,7 @@ export function structuredData() {
     {
       '@context': 'https://schema.org',
       '@type': 'VacationRental',
+      additionalType: 'Apartment',
       name: site.name,
       url: ORIGIN + '/',
       description: pages[0].description,
@@ -89,9 +102,7 @@ export function structuredData() {
         numberOfBathroomsTotal: 3,
         occupancy: { '@type': 'QuantitativeValue', value: site.guests },
         bed: beds.map(([typeOfBed, numberOfBeds]) => ({ '@type': 'BedDetails', typeOfBed, numberOfBeds })),
-        amenityFeature: amenities.flatMap((g) =>
-          g.items.map((name) => ({ '@type': 'LocationFeatureSpecification', name, value: true })),
-        ),
+        amenityFeature: features.map(([name, value]) => ({ '@type': 'LocationFeatureSpecification', name, value })),
       },
     },
     {
