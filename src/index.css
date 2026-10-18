@@ -85,6 +85,9 @@ button { font: inherit; cursor: pointer; }
 .btn:hover { transform: translateY(-2px); }
 .btn--primary { background: var(--accent); color: var(--accent-ink); }
 .btn--ghost { background: rgba(255, 255, 255, 0.75); color: var(--hero-ink); backdrop-filter: blur(6px); }
+/* Airbnb's brand coral ("Rausch"), kept smaller than the direct-booking button */
+.btn--airbnb { padding: 0.55rem 1.05rem; font-size: 0.82rem; font-weight: 600; background: #ff385c; color: #fff; align-self: center; }
+.btn--airbnb:hover { background: #e00b41; }
 .btn--outline { border-color: var(--accent); color: var(--accent); background: transparent; }
 .link-arrow { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; text-decoration: none; }
 

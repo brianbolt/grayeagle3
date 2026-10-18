@@ -18,6 +18,7 @@ export default function Home() {
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
           <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
+          <a className="btn btn--airbnb" href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
         <p className="hero__note">Same condo, same local hosts, and a better price when you book with us directly.</p>
@@ -112,6 +113,7 @@ export default function Home() {
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
             <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
+          <a className="btn btn--airbnb" href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
             <Link className="btn btn--ghost" to="/guide">Read the guest guide</Link>
           </div>
         </div>
