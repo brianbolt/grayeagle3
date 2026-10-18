@@ -2,7 +2,7 @@
 
 Website for the Gray Eagle Condo, a 3 bedroom / 3 bath vacation rental in Mammoth Lakes, CA.
 
-Built with React + Vite. Deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
+Built with React + Vite. Deployed to GitHub Pages at https://grayeagle3.com by `.github/workflows/deploy.yml` on every push to `main`.
 
 ## Seasonal themes
 
