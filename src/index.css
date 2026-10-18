@@ -189,6 +189,8 @@ button { font: inherit; cursor: pointer; }
 .season-toggle--floating .season-toggle__opt { padding: 0.6rem 0.75rem; }
 .season-toggle--floating .season-toggle__thumb { top: 6px; bottom: 6px; left: 6px; width: calc(50% - 6px); }
 
+.rider { position: fixed; z-index: 55; pointer-events: none; overflow: visible; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;

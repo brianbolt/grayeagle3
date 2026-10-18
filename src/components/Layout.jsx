@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import LiveButton from './LiveButton'
+import Rider from './Rider'
 import SeasonToggle from './SeasonToggle'
 import { site } from '../data/site'
 import { savingsLabel } from '../booking'
@@ -65,6 +66,7 @@ export default function Layout() {
       </main>
 
       <SeasonToggle floating />
+      <Rider />
 
       <footer className="footer">
         <div className="container footer__grid">

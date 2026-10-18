@@ -1,4 +1,7 @@
 import { useTheme } from '../theme'
+import { Fisherman, XCSkier } from './SceneFolks'
+
+const motion = typeof window !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const pine = (x, y, s) =>
   `M${x} ${y - 60 * s} L${x + 14 * s} ${y - 30 * s} L${x + 7 * s} ${y - 30 * s} L${x + 20 * s} ${y - 8 * s} L${x + 3 * s} ${y - 8 * s} L${x + 3 * s} ${y} L${x - 3 * s} ${y} L${x - 3 * s} ${y - 8 * s} L${x - 20 * s} ${y - 8 * s} L${x - 7 * s} ${y - 30 * s} L${x - 14 * s} ${y - 30 * s} Z`
@@ -60,6 +63,8 @@ export default function Scene({ className = '' }) {
           <path d="M420 596 h90 M600 606 h130 M800 592 h110 M930 604 h80" stroke="#bfe3f2" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
         </>
       )}
+
+      {w ? <XCSkier animate={motion} /> : <Fisherman animate={motion} />}
 
       {trees.map(([x, y, s], i) => (
         <g key={i}>
