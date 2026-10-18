@@ -28,8 +28,8 @@ export const site = {
 
 export const sleeping = [
   { room: 'Bedroom 1', bed: 'King bed' },
-  { room: 'Bedroom 2', bed: 'Queen bed' },
-  { room: 'Bedroom 3', bed: 'Double bed' },
+  { room: 'Bedroom 2', bed: 'Queen bed + twin' },
+  { room: 'Bedroom 3', bed: 'Queen bed' },
   { room: 'Living room', bed: 'Sofa bed' },
 ]
 
