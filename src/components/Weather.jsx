@@ -1,62 +1,56 @@
-import { useEffect, useState } from 'react'
-import { Cloud, CloudFog, CloudLightning, CloudRain, CloudSnow, CloudSun, Sun } from 'lucide-react'
-import { site } from '../data/site'
+import { useState } from 'react'
+import { describe, useMammothWeather } from '../weather'
 
-// WMO weather codes → icon + label (https://open-meteo.com/en/docs)
-function describe(code) {
-  if (code === 0) return [Sun, 'Clear']
-  if (code <= 2) return [CloudSun, 'Partly cloudy']
-  if (code === 3) return [Cloud, 'Cloudy']
-  if (code <= 48) return [CloudFog, 'Fog']
-  if (code <= 67 || (code >= 80 && code <= 82)) return [CloudRain, 'Rain']
-  if (code <= 77 || code === 85 || code === 86) return [CloudSnow, 'Snow']
-  return [CloudLightning, 'Thunderstorms']
-}
+const day = (iso, i) => (i === 0 ? 'Today' : new Date(`${iso}T12:00`).toLocaleDateString('en-US', { weekday: 'short' }))
 
-const url =
-  `https://api.open-meteo.com/v1/forecast?latitude=${site.coords.lat}&longitude=${site.coords.lon}` +
-  '&current=temperature_2m,weather_code,wind_speed_10m' +
-  '&daily=weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum' +
-  '&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch' +
-  '&timezone=America%2FLos_Angeles&forecast_days=5'
-
-// Live conditions in Mammoth Lakes from the free Open-Meteo API.
+// Town vs. mountain conditions side by side, with a 5-day forecast for
+// whichever spot is selected.
 export default function Weather() {
-  const [data, setData] = useState(null)
-  const [failed, setFailed] = useState(false)
+  const data = useMammothWeather()
+  const [sel, setSel] = useState(0)
 
-  useEffect(() => {
-    let alive = true
-    fetch(url)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then((d) => alive && setData(d))
-      .catch(() => alive && setFailed(true))
-    return () => { alive = false }
-  }, [])
-
-  if (failed) return null
+  if (data === null) return null
   if (!data) return <div className="weather weather--loading">Checking the sky over Mammoth…</div>
 
-  const [NowIcon, nowLabel] = describe(data.current.weather_code)
+  const spot = data[sel]
   return (
     <div className="weather">
-      <div className="weather__now">
-        <NowIcon size={44} strokeWidth={1.4} />
-        <div>
-          <p className="weather__temp">{Math.round(data.current.temperature_2m)}°F</p>
-          <p className="muted">{nowLabel} · wind {Math.round(data.current.wind_speed_10m)} mph</p>
-          <p className="weather__where">Right now in Mammoth Lakes</p>
-        </div>
-      </div>
-      <div className="weather__days">
-        {data.daily.time.map((day, i) => {
-          const [DayIcon] = describe(data.daily.weather_code[i])
-          const snow = data.daily.snowfall_sum[i]
+      <div className="weather__spots" role="tablist" aria-label="Location">
+        {data.map((s, i) => {
+          const [Icon, label] = describe(s.current.weather_code)
           return (
-            <div key={day} className="weather__day">
-              <span>{i === 0 ? 'Today' : new Date(`${day}T12:00`).toLocaleDateString('en-US', { weekday: 'short' })}</span>
+            <button
+              key={s.id}
+              role="tab"
+              aria-selected={sel === i}
+              className={`weather__spot ${sel === i ? 'is-active' : ''}`}
+              onClick={() => setSel(i)}
+            >
+              <span className="weather__spot-name">{s.label}</span>
+              <span className="weather__spot-ft">{s.ft}</span>
+              <span className="weather__spot-now">
+                <Icon size={22} strokeWidth={1.5} aria-label={label} />
+                <span className="weather__temp">{Math.round(s.current.temperature_2m)}°</span>
+              </span>
+            </button>
+          )
+        })}
+      </div>
+
+      <p className="weather__detail muted">
+        {spot.sub} · {describe(spot.current.weather_code)[1]} · feels like {Math.round(spot.current.apparent_temperature)}° · wind{' '}
+        {Math.round(spot.current.wind_speed_10m)} mph, gusts {Math.round(spot.current.wind_gusts_10m)}
+      </p>
+
+      <div className="weather__days">
+        {spot.daily.time.map((iso, i) => {
+          const [DayIcon] = describe(spot.daily.weather_code[i])
+          const snow = spot.daily.snowfall_sum[i]
+          return (
+            <div key={iso} className="weather__day">
+              <span>{day(iso, i)}</span>
               <DayIcon size={22} strokeWidth={1.5} />
-              <span>{Math.round(data.daily.temperature_2m_max[i])}° / <span className="muted">{Math.round(data.daily.temperature_2m_min[i])}°</span></span>
+              <span>{Math.round(spot.daily.temperature_2m_max[i])}° / <span className="muted">{Math.round(spot.daily.temperature_2m_min[i])}°</span></span>
               {snow > 0.1 && <span className="weather__snow">{snow.toFixed(1)}″ snow</span>}
             </div>
           )

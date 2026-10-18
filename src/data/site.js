@@ -76,7 +76,7 @@ export const amenities = [
   { group: 'Kitchen & dining', icon: 'CookingPot', items: ['Fully stocked kitchen', 'Refrigerator & freezer', 'Stove & oven', 'Microwave', 'Dishwasher', 'Coffee maker & toaster', 'Pots, pans, baking sheet', 'Oil, salt & pepper', 'Dining table'] },
   { group: 'Living & entertainment', icon: 'Tv', items: ['TV', 'Board games', 'Gas fireplace', 'Heating', 'Wifi'] },
   { group: 'Outdoor & parking', icon: 'Mountain', items: ['Private hot tub', 'Deck', 'Free garage parking for 2', 'Gear storage closets'] },
-  { group: 'Safety & check-in', icon: 'ShieldCheck', items: ['Self check-in', 'Smart lock', 'Smoke alarm', 'Carbon monoxide alarm', 'Fire extinguisher', 'Exterior security cameras'] },
+  { group: 'Safety & check-in', icon: 'ShieldCheck', items: ['Self check-in', 'Smart lock', 'Smoke alarm', 'Carbon monoxide alarm', 'Fire extinguisher', '1 camera facing out from the garage only'] },
 ]
 
 export const notIncluded = ['Air conditioning']
@@ -116,7 +116,7 @@ export const policies = [
   },
   {
     title: 'Security',
-    text: 'The outside of the townhome is monitored by security cameras.',
+    text: 'There is one camera, facing out from the garage only. There are no cameras inside the condo.',
   },
   {
     title: 'Assumption of risk',

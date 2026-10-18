@@ -1,5 +1,6 @@
 import { ExternalLink, Snowflake } from 'lucide-react'
 import PageHero from '../components/PageHero'
+import WeatherStrip from '../components/WeatherStrip'
 import { site } from '../data/site'
 
 export default function Live() {
@@ -16,8 +17,9 @@ export default function Live() {
           </a>
         </div>
       </PageHero>
+      <WeatherStrip />
 
-      <section className="section container">
+      <section className="section section--snug container">
         <div className="live-frame">
           <iframe title="Mammoth Mountain live webcams" src={site.skiCamsUrl} loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />
         </div>

@@ -282,10 +282,50 @@ button { font: inherit; cursor: pointer; }
 /* ---------- Weather ---------- */
 .weather { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.5rem; }
 .weather--loading { color: var(--ink-soft); font-style: italic; }
-.weather__now { display: flex; gap: 1.1rem; align-items: center; color: var(--accent); }
-.weather__now p { margin: 0; }
-.weather__temp { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; line-height: 1; color: var(--ink); }
-.weather__where { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink-soft); }
+.weather__spots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+.weather__spot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s;
+}
+.weather__spot:hover { border-color: var(--accent); }
+.weather__spot.is-active { border-color: var(--accent); background: var(--accent-soft); }
+.weather__spot-name { font-weight: 600; font-size: 0.85rem; }
+.weather__spot-ft { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--ink-soft); }
+.weather__spot-now { display: flex; align-items: center; gap: 0.45rem; margin-top: 0.35rem; color: var(--accent); }
+.weather__temp { font-family: 'Cormorant Garamond', serif; font-size: 2.3rem; line-height: 1; color: var(--ink); }
+.weather__detail { font-size: 0.82rem; margin: 0.9rem 0 0; }
+
+/* Live page conditions bar, tucked over the bottom edge of the hero */
+.wstrip-wrap { position: relative; z-index: 3; margin-top: -3.4rem; }
+.wstrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.wstrip__spot { display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.3rem; }
+.wstrip__spot + .wstrip__spot { border-left: 1px solid var(--line); }
+.wstrip__spot p { margin: 0; line-height: 1.2; }
+.wstrip__icon { color: var(--accent); flex: none; }
+.wstrip__name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+.wstrip__name span { font-weight: 400; color: var(--ink-soft); letter-spacing: 0.05em; margin-left: 0.25rem; }
+.wstrip__temp { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--ink); display: flex; align-items: baseline; gap: 0.55rem; }
+.wstrip__range { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--ink-soft); }
+.wstrip__meta { display: flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; color: var(--ink-soft); }
+.wstrip__snow { color: var(--accent); font-weight: 600; }
+.section--snug { padding-top: 2rem; }
 .weather__days { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-top: 1.4rem; border-top: 1px solid var(--line); padding-top: 1.1rem; }
 .weather__day { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; font-size: 0.82rem; color: var(--ink); text-align: center; }
 .weather__day svg { color: var(--accent); }
@@ -394,7 +434,14 @@ button { font: inherit; cursor: pointer; }
   .footer__grid { grid-template-columns: 1fr; }
   .sleep { grid-template-columns: 1fr; }
   .map { aspect-ratio: 4 / 3; }
-  .weather__days { grid-template-columns: repeat(3, 1fr); }
+  .weather__days { grid-template-columns: repeat(5, 1fr); gap: 0.2rem; font-size: 0.75rem; }
+  .weather__spot { padding: 0.6rem; }
+  .weather__spot-name { white-space: nowrap; font-size: 0.78rem; }
+  .weather__spot-now svg { display: none; }
+  .wstrip__spot { flex-direction: column; align-items: flex-start; gap: 0.2rem; padding: 0.7rem 0.75rem; }
+  .wstrip__icon { width: 20px; height: 20px; }
+  .wstrip__name span { display: block; margin: 0; }
+  .wstrip__temp { flex-direction: column; gap: 0; font-size: 1.7rem; }
   .lightbox__nav { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
