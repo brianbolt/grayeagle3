@@ -16,7 +16,7 @@ export default function Home() {
       <PageHero tall eyebrow={content.eyebrow} title={content.headline}>
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href={site.airbnbUrl} target="_blank" rel="noreferrer">Check availability</a>
+          <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Check availability</a>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
         <p className="hero__rating">
@@ -109,7 +109,7 @@ export default function Home() {
           <h2>{season === 'winter' ? 'First chair is calling.' : 'The lakes are waiting.'}</h2>
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href={site.airbnbUrl} target="_blank" rel="noreferrer">Book on Airbnb</a>
+            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Book now</a>
             <Link className="btn btn--ghost" to="/book">Ask a question</Link>
           </div>
         </div>

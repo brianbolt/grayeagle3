@@ -31,12 +31,15 @@ export default function Book() {
 
       <section className="section container split split--top">
         <div>
-          <h2>Book online</h2>
-          <p>See live availability and pricing on your favorite platform.</p>
+          <h2>Book direct</h2>
+          <p>See live availability and pricing, and book directly with us.</p>
           <div className="book-buttons">
-            <a className="btn btn--primary" href={site.airbnbUrl} target="_blank" rel="noreferrer">Book on Airbnb</a>
-            <a className="btn btn--outline" href={site.vrboUrl} target="_blank" rel="noreferrer">Book on VRBO</a>
+            <a className="btn btn--primary" href={site.bookUrl} target="_blank" rel="noreferrer">Check availability & book</a>
           </div>
+          <p className="muted">Prefer a booking platform? We are also on{' '}
+            <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a> and{' '}
+            <a href={site.vrboUrl} target="_blank" rel="noreferrer">VRBO</a>.
+          </p>
           <div className="panel panel--note">
             <h3>Before you book</h3>
             <ul>

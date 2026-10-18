@@ -75,7 +75,8 @@ export default function Layout() {
             ))}
           </div>
           <div>
-            <p className="footer__label">Book direct</p>
+            <p className="footer__label">Book</p>
+            <a href={site.bookUrl} target="_blank" rel="noreferrer">Book direct</a>
             <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
             <a href={site.vrboUrl} target="_blank" rel="noreferrer">VRBO</a>
             <a href={`mailto:${site.email}`}>{site.email}</a>

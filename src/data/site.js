@@ -5,6 +5,8 @@ export const site = {
   shortName: 'Gray Eagle',
   town: 'Mammoth Lakes, California',
   permit: 'TOML-CPAN-16072',
+  // Direct booking (Hostfully) is the primary call to action across the site.
+  bookUrl: 'https://book.hostfully.com/mammoth-bnb/property-details/18e2499b-2901-45f8-8b0d-d9f9c2d42e20/Gray%20Eagle%20Condo%20-%203bed3bath?guests=6',
   // TODO: replace the VRBO link and contact email with the real ones.
   airbnbUrl: 'https://www.airbnb.com/rooms/1330005146820683917',
   vrboUrl: 'https://www.vrbo.com/search?destination=Mammoth%20Lakes%2C%20California',
@@ -12,6 +14,7 @@ export const site = {
   photoCredit: 'Nolan Nitschke',
   coords: { lat: 37.6482, lon: -118.9742 },
   guests: 7,
+  // Snapshot from the Airbnb listing (not live); update by hand as reviews come in.
   rating: 4.84,
   reviewCount: 31,
   checkIn: '4:00 PM',
@@ -81,7 +84,8 @@ export const photoGroups = [
   { id: 'hottub', label: 'Hot tub', ids: range(10, 12) },
   { id: 'bedrooms', label: 'Bedrooms', ids: [...range(21, 26), ...range(29, 31), ...range(34, 39)] },
   { id: 'baths', label: 'Bathrooms', ids: [27, 28, 32, 40] },
-  { id: 'garage', label: 'Garage & exterior', ids: [33, ...range(41, 46)] },
+  { id: 'hallway', label: 'Hallway & laundry', ids: [33] },
+  { id: 'garage', label: 'Garage & exterior', ids: range(41, 46) },
 ]
 
 const base = import.meta.env.BASE_URL
