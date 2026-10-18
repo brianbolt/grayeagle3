@@ -18,7 +18,7 @@ function initialSeason() {
 }
 
 // Apply before first paint so the page doesn't flash the wrong palette.
-document.documentElement.dataset.season = initialSeason()
+if (typeof document !== 'undefined') document.documentElement.dataset.season = initialSeason()
 
 export function ThemeProvider({ children }) {
   const [season, setSeason] = useState(initialSeason)

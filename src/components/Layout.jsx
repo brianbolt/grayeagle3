@@ -5,6 +5,7 @@ import LiveButton from './LiveButton'
 import Rider from './Rider'
 import SeasonToggle from './SeasonToggle'
 import { site } from '../data/site'
+import { pageFor } from '../data/seo'
 import { bookLabel } from '../booking'
 import { useTheme } from '../theme'
 
@@ -24,6 +25,9 @@ export default function Layout() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+    const page = pageFor(pathname)
+    document.title = page.title
+    document.querySelector('meta[name="description"]')?.setAttribute('content', page.description)
   }, [pathname])
 
   useEffect(() => {

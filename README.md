@@ -26,8 +26,15 @@ The site has a **winter** (ski) theme and a **summer** (lakes, fishing, cycling,
 ```bash
 npm install
 npm run dev      # local dev server
-npm run build    # production build in dist/
+npm run build    # production build in dist/ (pre-renders every page)
 ```
+
+## SEO
+
+- Real paths (`/condo`, `/explore`, …). Old `/#/…` links are forwarded in `src/main.jsx`.
+- `npm run build` pre-renders each page to static HTML (`scripts/prerender.mjs` + `src/entry-server.jsx`) with its own title, description, canonical URL, and Open Graph tags; the home page also gets schema.org `VacationRental` data.
+- Page titles/descriptions live in `src/data/seo.js`. Add new pages there so they're pre-rendered and listed in `sitemap.xml`.
+- `public/robots.txt` points crawlers at `https://grayeagle3.com/sitemap.xml`.
 
 Photos © Nolan Nitschke. Town of Mammoth Lakes permit #TOML-CPAN-16072.
 

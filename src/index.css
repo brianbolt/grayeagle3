@@ -378,6 +378,11 @@ button { font: inherit; cursor: pointer; }
 /* ---------- Explore / Guide / Book ---------- */
 .switch-note { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 3rem; color: var(--ink-soft); }
 .switch-note p { margin: 0; }
+.also { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.4rem 2.5rem; }
+.also li { display: flex; gap: 0.9rem; align-items: flex-start; }
+.also svg { color: var(--accent); flex: none; margin-top: 0.2rem; }
+.also h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+.also p { color: var(--ink-soft); font-size: 0.9rem; margin: 0; }
 .link-list { list-style: none; padding: 0; margin: 0; }
 .link-list li { border-top: 1px solid var(--line); }
 .link-list a { display: flex; align-items: center; justify-content: space-between; padding: 0.95rem 0; text-decoration: none; color: var(--ink); font-weight: 500; }

@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Relative base so the build works on GitHub Pages (/grayeagle3/) or any host.
+// Served from the root of grayeagle3.com with real paths (/condo, /explore, …).
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/',
 })

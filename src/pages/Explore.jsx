@@ -4,6 +4,7 @@ import Icon from '../components/Icon'
 import SeasonToggle from '../components/SeasonToggle'
 import Weather from '../components/Weather'
 import { resources } from '../data/site'
+import { seasons } from '../data/seasons'
 import { useTheme } from '../theme'
 
 export default function Explore() {
@@ -27,8 +28,26 @@ export default function Explore() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="section section--snug container">
+        <div className="section__head">
+          <p className="eyebrow">Coming back in {other}?</p>
+          <h2>{seasons[other].exploreTitle}</h2>
+        </div>
+        <ul className="also">
+          {seasons[other].activities.map((a) => (
+            <li key={a.title}>
+              <Icon name={a.icon} size={22} strokeWidth={1.5} />
+              <div>
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
         <div className="switch-note">
-          <p>Planning a {other} trip instead?</p>
+          <p>See the site in {other} mode</p>
           <SeasonToggle />
         </div>
       </section>
