@@ -12,7 +12,7 @@ export const site = {
   // Set to a number (e.g. 15) to show "Save up to 15%" on the direct-booking
   // buttons. Compare the same dates on Hostfully vs Airbnb to find it.
   directSavings: null,
-  airbnbUrl: 'https://www.airbnb.com/rooms/1330005146820683917',
+  airbnbUrl: 'https://www.airbnb.com/h/grayeagle-3',
   snowmanUrl: 'https://www.mammothsnowman.com/',
   skiCamsUrl: 'https://skicamslive.com/mountain/mammoth-mountain/',
   skiCamsHome: 'https://skicamslive.com/',
