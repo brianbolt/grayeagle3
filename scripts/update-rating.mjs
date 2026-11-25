@@ -3,9 +3,11 @@
 // page can't be read or the numbers look wrong, so a bad fetch never
 // overwrites good data.
 import { readFile, writeFile } from 'node:fs/promises'
-import { site } from '../src/data/site'
-  
-const LISTING = site.airbnbListing
+
+// site.js is bundler-only (it imports rating.json), so read the URL as text.
+const siteSrc = await readFile(new URL('../src/data/site.js', import.meta.url), 'utf8')
+const LISTING = siteSrc.match(/airbnbUrl:\s*'([^']+)'/)?.[1]
+if (!LISTING) throw new Error('Could not find airbnbUrl in src/data/site.js')
 const FILE = new URL('../src/data/rating.json', import.meta.url)
 
 const res = await fetch(LISTING, {
