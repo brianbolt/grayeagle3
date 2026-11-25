@@ -9,9 +9,9 @@ export const site = {
   permit: 'TOML-CPAN-16072',
   // Set to false to hide direct booking everywhere: the /book page, nav and footer
   // links, "Book direct" buttons, and its sitemap entry. Airbnb becomes the only booking button.
-  directBooking: false,
+  directBooking: true,
   // Direct booking (Hostfully) is the primary call to action across the site.
-  bookUrl: 'https://book.hostfully.com/mammoth-bnb/property-details/18e2499b-2901-45f8-8b0d-d9f9c2d42e20/Gray%20Eagle%20Condo%20-%203bed3bath?guests=6',
+  bookUrl: 'https://grayeagle3.hospitable.rentals/',
   // Set to a number (e.g. 15) to show "Save up to 15%" on the direct-booking
   // buttons. Compare the same dates on Hostfully vs Airbnb to find it.
   directSavings: null,
