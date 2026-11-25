@@ -9,13 +9,15 @@ import { pageFor } from '../data/seo'
 import { bookLabel } from '../booking'
 import { useTheme } from '../theme'
 
-const links = [
+const allLinks = [
   { to: '/', label: 'Home', end: true },
   { to: '/condo', label: 'The Condo' },
   { to: '/explore', label: 'Explore' },
   { to: '/guide', label: 'Guest Guide' },
   { to: '/book', label: 'Book' },
 ]
+
+const links = allLinks.filter((l) => l.to !== '/book' || site.directBooking)
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -87,7 +89,7 @@ export default function Layout() {
           </div>
           <div>
             <p className="footer__label">Book</p>
-            <Link to="/book">{bookLabel}</Link>
+            {site.directBooking && <Link to="/book">{bookLabel}</Link>}
             <a href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
             <Link to="/live">Live mountain cams</Link>
             <a href={site.snowmanUrl} target="_blank" rel="noreferrer">Mammoth Snowman</a>

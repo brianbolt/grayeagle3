@@ -26,6 +26,13 @@ const num = (re) => {
 const rating = num(/"starRating":([0-9.]+)/)
 const reviewCount = num(/"reviewCount":([0-9]+)/)
 
+// A brand-new listing reports starRating 0 / reviewCount 0 ("New" on the page).
+// Nothing to update yet; leave the file alone and don't fail the workflow.
+if (rating === 0 && reviewCount === 0) {
+  console.log('Listing has no reviews yet; leaving rating.json unchanged')
+  process.exit(0)
+}
+
 if (!(rating >= 1 && rating <= 5) || !(Number.isInteger(reviewCount) && reviewCount > 0)) {
   throw new Error(`Could not find a valid rating on the listing page (rating=${rating}, reviewCount=${reviewCount})`)
 }

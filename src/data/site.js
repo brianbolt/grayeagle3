@@ -7,6 +7,9 @@ export const site = {
   shortName: 'Gray Eagle',
   town: 'Mammoth Lakes, California',
   permit: 'TOML-CPAN-16072',
+  // Set to false to hide direct booking everywhere: the /book page, nav and footer
+  // links, "Book direct" buttons, and its sitemap entry. Airbnb becomes the only booking button.
+  directBooking: false,
   // Direct booking (Hostfully) is the primary call to action across the site.
   bookUrl: 'https://book.hostfully.com/mammoth-bnb/property-details/18e2499b-2901-45f8-8b0d-d9f9c2d42e20/Gray%20Eagle%20Condo%20-%203bed3bath?guests=6',
   // Set to a number (e.g. 15) to show "Save up to 15%" on the direct-booking
@@ -22,6 +25,8 @@ export const site = {
   // Refreshed weekly from the Airbnb listing by .github/workflows/update-rating.yml
   rating: airbnbRating.rating,
   reviewCount: airbnbRating.reviewCount,
+  // False while the listing has no reviews yet, so the rating line is hidden.
+  hasRating: airbnbRating.reviewCount > 0,
   checkIn: '4:00 PM',
   checkOut: '10:00 AM',
 }
@@ -124,7 +129,7 @@ export const policies = [
   },
 ]
 
-export const faqs = [
+const allFaqs = [
   {
     q: 'Do I need a car?',
     a: 'Not necessarily. One of the prides of Mammoth Lakes is its free shuttle and trolley system, which stops near the condo and takes you to the lifts in winter. Restaurants and shops are walkable. A car is handy for summer trips to the Lakes Basin, Convict Lake, or Yosemite.',
@@ -154,6 +159,8 @@ export const faqs = [
     a: 'Yes. We live less than a mile from the condo and aim for a 5-star stay. If anything comes up, let us know.',
   },
 ]
+
+export const faqs = allFaqs.filter((f) => site.directBooking || !f.q.startsWith('Why book direct'))
 
 export const resources = {
   winter: [

@@ -20,13 +20,13 @@ export const ORIGIN = 'https://grayeagle3.com'
 
 // One entry per page: used for the pre-rendered <head>, the sitemap, and
 // document.title when navigating client-side.
-export const pages = [
+const allPages = [
   {
     path: '/',
     file: 'index.html',
     title: 'Gray Eagle Condo | Mammoth Lakes Rental with Private Hot Tub',
     description:
-      '3 bedroom, 3 bath Mammoth Lakes condo with a private hot tub and 2-car garage. Walk to town, ride the free shuttle to Mammoth Mountain, and book direct to save.',
+      '3 bedroom, 3 bath Mammoth Lakes condo with a private hot tub and 2-car garage. Walk to town, ride the free shuttle to Mammoth Mountain' + (site.directBooking ? ', and book direct to save.' : '.'),
   },
   {
     path: '/condo',
@@ -64,6 +64,8 @@ export const pages = [
       'Live Mammoth Mountain webcams plus current temperatures for town, Main Lodge, and the summit, with a link to the Mammoth Snowman forecast.',
   },
 ]
+
+export const pages = allPages.filter((p) => p.path !== '/book' || site.directBooking)
 
 export const pageFor = (pathname) => {
   const clean = pathname.replace(/\/+$/, '') || '/'

@@ -9,6 +9,10 @@ import { bookLabel } from '../booking'
 
 const mosaic = [14, 2, 21, 12, 29, 8]
 
+// Airbnb is a small secondary button next to "Book direct"; on its own it gets full size.
+const airbnbClass = site.directBooking ? 'btn btn--airbnb' : 'btn btn--airbnb btn--airbnb-solo'
+const airbnbLabel = site.directBooking ? 'Airbnb' : 'Book on Airbnb'
+
 export default function Home() {
   const { content, season } = useTheme()
 
@@ -17,14 +21,18 @@ export default function Home() {
       <PageHero tall eyebrow={content.eyebrow} title={content.headline}>
         <p className="hero__lede">{content.intro}</p>
         <div className="hero__actions">
-          <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
-          <a className="btn btn--airbnb" href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
+          {site.directBooking && <Link className="btn btn--primary" to="/book">{bookLabel}</Link>}
+          <a className={airbnbClass} href={site.airbnbUrl} target="_blank" rel="noreferrer">{airbnbLabel}</a>
           <Link className="btn btn--ghost" to="/condo">Tour the condo</Link>
         </div>
-        <p className="hero__note">Same condo, same local hosts, and a better price when you book with us directly.</p>
-        <p className="hero__rating">
-          <Star size={16} fill="currentColor" /> {site.rating} · {site.reviewCount} reviews on Airbnb
-        </p>
+        {site.directBooking && (
+          <p className="hero__note">Same condo, same local hosts, and a better price when you book with us directly.</p>
+        )}
+        {site.hasRating && (
+          <p className="hero__rating">
+            <Star size={16} fill="currentColor" /> {site.rating} · {site.reviewCount} reviews on Airbnb
+          </p>
+        )}
       </PageHero>
 
       <section className="stats">
@@ -112,8 +120,8 @@ export default function Home() {
           <h2>{season === 'winter' ? 'First chair is calling.' : 'The lakes are waiting.'}</h2>
           <p>We are local hosts, less than a mile away, and we aim for a 5-star stay every time.</p>
           <div className="hero__actions">
-            <Link className="btn btn--primary" to="/book">{bookLabel}</Link>
-          <a className="btn btn--airbnb" href={site.airbnbUrl} target="_blank" rel="noreferrer">Airbnb</a>
+            {site.directBooking && <Link className="btn btn--primary" to="/book">{bookLabel}</Link>}
+            <a className={airbnbClass} href={site.airbnbUrl} target="_blank" rel="noreferrer">{airbnbLabel}</a>
             <Link className="btn btn--ghost" to="/guide">Read the guest guide</Link>
           </div>
         </div>

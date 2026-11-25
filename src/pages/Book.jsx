@@ -8,7 +8,11 @@ export default function Book() {
     <>
       <PageHero eyebrow="Book your stay" title="Reserve Gray Eagle.">
         <p className="hero__lede">
-          <Star size={16} fill="currentColor" /> {site.rating} from {site.reviewCount} Airbnb reviews · local, responsive hosts
+          {site.hasRating ? (
+            <><Star size={16} fill="currentColor" /> {site.rating} from {site.reviewCount} Airbnb reviews · local, responsive hosts</>
+          ) : (
+            'Local, responsive hosts'
+          )}
         </p>
       </PageHero>
 

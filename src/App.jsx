@@ -7,6 +7,7 @@ import Explore from './pages/Explore'
 import Guide from './pages/Guide'
 import Book from './pages/Book'
 import Live from './pages/Live'
+import { site } from './data/site'
 
 // Shared by the browser app and the build-time pre-renderer (entry-server.jsx).
 export function AppRoutes() {
@@ -17,7 +18,7 @@ export function AppRoutes() {
         <Route path="condo" element={<Condo />} />
         <Route path="explore" element={<Explore />} />
         <Route path="guide" element={<Guide />} />
-        <Route path="book" element={<Book />} />
+        {site.directBooking && <Route path="book" element={<Book />} />}
         <Route path="live" element={<Live />} />
         <Route path="*" element={<Home />} />
       </Route>
