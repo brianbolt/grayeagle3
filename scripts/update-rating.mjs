@@ -3,7 +3,7 @@
 // page can't be read or the numbers look wrong, so a bad fetch never
 // overwrites good data.
 import { readFile, writeFile } from 'node:fs/promises'
-import { site } from '../data/site'
+import { site } from '../src/data/site'
   
 const LISTING = site.airbnbListing
 const FILE = new URL('../src/data/rating.json', import.meta.url)
